@@ -1,192 +1,344 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Academic Webpage" />
-    <meta name="author" content="yixin0313" />
-    <title id="title"></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>陆少军 | 海南大学通信博士生</title>
+    <meta name="description" content="陆少军，海南大学通信博士生个人主页" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --ink: #072c42;
+            --sky: #e7f6ff;
+            --teal: #1f8a9f;
+            --sea: #0e5f7a;
+            --gold: #f3b343;
+            --card: rgba(255, 255, 255, 0.82);
+            --line: rgba(7, 44, 66, 0.12);
+            --radius: 22px;
+            --shadow: 0 18px 40px rgba(7, 44, 66, 0.16);
+        }
 
-    <!-- Icon -->
-    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        body {
+            font-family: "Noto Serif SC", "Microsoft YaHei", sans-serif;
+            color: var(--ink);
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 12% 15%, rgba(243, 179, 67, 0.24), transparent 36%),
+                radial-gradient(circle at 88% 80%, rgba(31, 138, 159, 0.22), transparent 40%),
+                linear-gradient(140deg, #f8fdff 0%, #eaf6fc 52%, #dbf0f6 100%);
+            overflow-x: hidden;
+        }
 
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-        rel="stylesheet" />
+        .waves {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
 
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
-    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+        .waves::before,
+        .waves::after {
+            content: "";
+            position: absolute;
+            width: 120vmax;
+            height: 120vmax;
+            border-radius: 44% 56% 63% 37% / 41% 42% 58% 59%;
+            background: linear-gradient(140deg, rgba(31, 138, 159, 0.14), rgba(255, 255, 255, 0));
+            animation: drift 18s linear infinite;
+        }
 
-    <!-- Bootstrap core JS-->
-    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+        .waves::before {
+            top: -72vmax;
+            left: -46vmax;
+        }
 
-    <!-- For Compatability -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        .waves::after {
+            bottom: -76vmax;
+            right: -48vmax;
+            animation-duration: 24s;
+            animation-direction: reverse;
+        }
 
-    <!-- Markdown -->
-    <script type="text/javascript" src="static/js/marked.min.js"></script>
+        .page {
+            width: min(1080px, calc(100% - 32px));
+            margin: 36px auto 42px;
+        }
 
-    <!-- Mathematics -->
-    <script>
-        // See https://docs.mathjax.org/en/latest/index.html for more details.
-        MathJax = {
-            tex: {
-                packages: {},              // extensions to use
-                inlineMath: [              // start/end delimiter pairs for in-line math
-                    ['$', '$'],
-                    ['\\(', '\\)']
-                ],
-                displayMath: [             // start/end delimiter pairs for display math
-                    ['$$', '$$'],
-                    ['\\[', '\\]']
-                ],
-                processEscapes: false,      // use \$ to produce a literal dollar sign
-                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
-                processRefs: true,         // process \ref{...} outside of math mode
-                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
-                tags: 'all',              // or 'ams' or 'all'
-                tagSide: 'right',          // side for \tag macros
-                tagIndent: '0.8em',        // amount to indent tags
-                useLabelIds: true,         // use label name rather than tag for ids
-                maxMacros: 10000,          // maximum number of macro substitutions per expression
-                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
-                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
-                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
-                formatError:               // function called when TeX syntax errors occur
-                    (jax, err) => jax.formatError(err)
+        .hero {
+            position: relative;
+            background: linear-gradient(130deg, rgba(14, 95, 122, 0.95), rgba(31, 138, 159, 0.9));
+            color: #f6fcff;
+            border-radius: calc(var(--radius) + 4px);
+            padding: 42px 34px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: rise 0.9s ease both;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -42px;
+            top: -52px;
+            width: 230px;
+            height: 230px;
+            border-radius: 34% 66% 64% 36% / 55% 36% 64% 45%;
+            background: radial-gradient(circle at 20% 20%, rgba(243, 179, 67, 0.62), rgba(243, 179, 67, 0.04));
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(246, 252, 255, 0.35);
+            border-radius: 999px;
+            padding: 7px 16px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-family: "ZCOOL XiaoWei", serif;
+            font-size: clamp(36px, 6vw, 58px);
+            margin-bottom: 8px;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: clamp(17px, 2.8vw, 24px);
+            opacity: 0.96;
+            margin-bottom: 16px;
+        }
+
+        .intro {
+            max-width: 640px;
+            font-size: 16px;
+            line-height: 1.9;
+            color: rgba(246, 252, 255, 0.92);
+        }
+
+        .grid {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 24px;
+            backdrop-filter: blur(7px);
+            box-shadow: 0 8px 24px rgba(7, 44, 66, 0.08);
+            animation: rise 1s ease both;
+        }
+
+        .card h2 {
+            font-family: "ZCOOL XiaoWei", serif;
+            color: var(--sea);
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .profile {
+            grid-column: span 7;
+            animation-delay: 0.14s;
+        }
+
+        .focus {
+            grid-column: span 5;
+            animation-delay: 0.22s;
+        }
+
+        .timeline {
+            grid-column: span 6;
+            animation-delay: 0.3s;
+        }
+
+        .contact {
+            grid-column: span 6;
+            animation-delay: 0.38s;
+        }
+
+        p,
+        li {
+            line-height: 1.85;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        li::before {
+            content: "◆";
+            color: var(--teal);
+            margin-right: 8px;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+
+        .chips {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(14, 95, 122, 0.22);
+            background: rgba(255, 255, 255, 0.78);
+            font-size: 14px;
+        }
+
+        .email {
+            margin-top: 14px;
+            font-size: 16px;
+        }
+
+        .email a {
+            color: var(--sea);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(14, 95, 122, 0.45);
+            padding-bottom: 2px;
+        }
+
+        .email a:hover {
+            color: var(--teal);
+            border-bottom-color: rgba(31, 138, 159, 0.65);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px 10px 8px;
+            color: rgba(7, 44, 66, 0.66);
+            font-size: 14px;
+        }
+
+        @keyframes drift {
+            from {
+                transform: rotate(0deg);
             }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script"
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-    <!-- Core JS-->
-    <script type="text/javascript" src="static/js/scripts.js"></script>
-    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        @media (max-width: 900px) {
+            .page {
+                margin: 20px auto 28px;
+            }
+
+            .hero {
+                padding: 34px 24px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile,
+            .focus,
+            .timeline,
+            .contact {
+                grid-column: span 1;
+            }
+        }
+    </style>
 </head>
+<body>
+    <div class="waves" aria-hidden="true"></div>
 
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-        <div class="container px-5">
-            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top"></a>
-            <!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                MENU
-                <i class="bi-list"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#home">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#awards">AWARDS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#experience">EXPERIENCE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a>
-                    </li>
+    <main class="page">
+        <section class="hero">
+            <div class="tag">HAINAN UNIVERSITY · COMMUNICATION</div>
+            <h1>陆少军</h1>
+            <p class="subtitle">海南大学通信博士生</p>
+            <p class="intro">
+                聚焦无线通信与智能信号处理，关注复杂海洋环境中的可靠传输与高效协同。
+                希望将理论模型与工程实践连接起来，为智慧海洋通信贡献稳定、可落地的解决方案。
+            </p>
+        </section>
+
+        <section class="grid">
+            <article class="card profile">
+                <h2>个人简介</h2>
+                <p>
+                    我是陆少军，现为海南大学通信专业博士研究生。
+                    在科研中坚持“问题导向 + 系统实现”，重视从算法性能、实验复现到应用场景的完整闭环。
+                </p>
+                <div class="chips">
+                    <span class="chip">通信系统</span>
+                    <span class="chip">信号处理</span>
+                    <span class="chip">海洋场景</span>
+                    <span class="chip">学术研究</span>
+                </div>
+            </article>
+
+            <article class="card focus">
+                <h2>研究方向</h2>
+                <ul>
+                    <li>无线信道建模与性能优化</li>
+                    <li>智能反射面辅助通信</li>
+                    <li>鲁棒波束赋形与抗干扰设计</li>
+                    <li>面向海洋环境的低功耗通信方案</li>
                 </ul>
-            </div>
-        </div>
-    </nav>
+            </article>
 
-    <!-- Top Section -->
-    <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
-        <div class="top-section-content">
-            <div class="container px-5">
-                <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt"></h2>
-            </div>
-        </div>
-    </section>
-    <!-- Top Section -->
+            <article class="card timeline">
+                <h2>学术轨迹</h2>
+                <ul>
+                    <li>本科阶段奠定通信与数学基础，形成系统思维</li>
+                    <li>硕士阶段深入无线网络与算法优化研究</li>
+                    <li>博士阶段聚焦复杂场景下通信可靠性与智能化</li>
+                </ul>
+            </article>
 
-    <!-- Photo -->
-    <div class="container px-5">
-        <div id="avatar">
-            <img class="shadow" src="static/assets/img/photo.png">
-        </div>
-    </div>
-    <!-- Photo -->
+            <article class="card contact">
+                <h2>学术愿景</h2>
+                <p>
+                    面向国家海洋战略与新一代信息网络需求，持续推进高可靠、低时延、可扩展的通信方法，
+                    让更多研究成果走出论文、进入真实系统。
+                </p>
+                <p class="email">邮箱：<a href="mailto:schlacht@hainanu.edu.cn">schlacht@hainanu.edu.cn</a></p>
+                <div class="chips">
+                    <span class="chip">严谨求实</span>
+                    <span class="chip">开放协作</span>
+                    <span class="chip">持续创新</span>
+                </div>
+            </article>
+        </section>
 
-    <!-- Home -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
-        <div class="container px-5">
-            <header>
-                <h2 id="home-subtitle"> </h2>
-                <!-- <span class="bi bi-list"></span> -->
-            </header>
-            <div class="main-body" id="home-md"></div>
-        </div>
-    </section>
-    <!-- Home -->
-
-    <!-- Awards -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
-        <div class="container px-5">
-            <header>
-                <h2 id="awards-subtitle"><i class="bi bi-award-fill"></i>AWARDS </h2>
-            </header>
-            <div class="main-body" id="awards-md"></div>
-
-        </div>
-    </section>
-    <!-- Awards -->
-
-    <!-- Experience -->
-    <section class="bg-gradient-primary-to-secondary-dark mt5 md5" id="experience">
-        <div class="container px-5">
-            <header>
-                <h2 id="experience-subtitle"><i class="bi bi-briefcase-fill"></i> EXPERIENCE </h2>
-            </header>
-            <div class="main-body" id="experience-md"></div>
-        </div>
-    </section>
-    <!-- Experience -->
-
-    <!-- Publications -->
-    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="publications">
-        <div class="container px-5">
-            <header>
-                <h2 id="publications-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;PUBLICATIONS</h2>
-            </header>
-            <div class="main-body" id="publications-md"></div>
-
-        </div>
-    </section>
-    <!-- Publications  -->
-
-    <!-- Footer-->
-    <footer class="bg-bottom text-center py-5">
-        <div class="container px-5">
-            <div class="text-white-50 small">
-                <div id="copyright-text" class="mb-2"></div>
-                <a id="github-link" href="https://github.com/senli1073">Github</a>
-                <span class="mx-1">&middot;</span>
-                <a id="license-link"
-                    href="https://github.com/senli1073/senli1073.github.io/blob/main/LICENSE">License</a>
-            </div>
-        </div>
-    </footer>
-
+        <footer class="footer">
+            © 2026 陆少军 · 海南大学通信博士生个人主页
+        </footer>
+    </main>
 </body>
-
 </html>
